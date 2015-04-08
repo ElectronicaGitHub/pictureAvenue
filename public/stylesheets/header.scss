@@ -1,0 +1,115 @@
+@import "theme";
+
+$buttonColor : #333;
+$buttonTextColor : #ddd;
+
+header {
+	height: 90px;
+	background-color: #222;
+	padding: 20px;
+	box-sizing: border-box;
+	.admin-userinfo {
+		float: right;
+		color: $buttonTextColor;
+		background-color: $buttonColor;
+		height: 50px;
+		line-height: 50px;
+		font-weight: bold;
+		font-size: 20px;
+		text-align: center;
+		margin-right: 20px;
+		span {
+			text-align: center;
+			display: inline-block;
+			float: left;
+		}
+		.admin-button-avatar {
+			width: 50px;
+			height: 50px;
+		}
+		.admin-button-username {
+			padding: 0 20px;
+		}
+	}
+	.admin-button {
+		position: relative;
+		width: 200px;
+		text-align: center;
+		color: $buttonTextColor;
+		cursor: pointer;
+		background-color: $buttonColor;
+		font-size: 20px;
+		height: 50px;
+		line-height: 50px;
+		font-weight: bold;
+		float: right;
+		transition: all 0.5s;
+		&.extended {
+			// width: 250px;
+			width: auto;
+			span {
+				text-align: center;
+				display: inline-block;
+				float: left;
+			}
+			.admin-button-exit {
+				// width: 100px;
+				padding: 0 20px;
+				color: $buttonTextColor;
+				transition: all 0.5s;
+				&:hover {
+					background-color: lighten($buttonColor, 10);
+				}
+			}
+			.admin-button-openadmin {
+				// width: 150px;
+				padding: 0 20px;
+				transition: all 0.5s;
+				&:hover {
+					background-color: lighten($buttonColor, 10);
+				}
+			}
+			&:hover {
+				background-color: $buttonColor;
+				color: $buttonTextColor;
+			}
+		}
+		.admin-button-dropdown {
+			position: absolute;
+			box-shadow: 0 2px 5px rgba(0,0,0,5);
+			right: 0;
+			width: 100%;
+			z-index: -1;
+			background-color: lighten($buttonColor, 70);
+			color: #333;
+			opacity: 0;
+			transition: all 0.5s;
+			.admin-button-auth-method {
+				transition: background-color 0.4s;
+				&:hover {
+					background-color: lighten($buttonColor, 60);
+				}
+			}
+			a {
+				color: darken($buttonTextColor, 70);
+			}
+		}
+		a {
+			color: $buttonTextColor;
+			text-decoration: none;
+			font-weight: 700;
+			font-size: 20px;
+			i {
+				margin-right: 10px;
+			}
+		}
+		&:hover .admin-button-dropdown {
+			opacity: 1;
+			z-index: 10;
+		}
+		&:hover {
+			background-color: #444;
+			color: #eee;
+		}
+	}
+}

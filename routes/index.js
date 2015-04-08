@@ -1,0 +1,16 @@
+// var News = require('../models/News');
+
+function fn(express) {
+	var router = express.Router();
+	
+	router.get('/', function(req, res) {
+		console.log(req.user);
+		res.render('index', {
+			user : req.user
+		});
+	});
+
+	return router;
+}
+
+module.exports = fn;

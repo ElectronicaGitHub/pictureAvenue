@@ -1,0 +1,250 @@
+@import "theme";
+
+* {
+	font-family: 'Roboto Condensed';
+}
+
+.adminPanel {
+	box-shadow: 0 2px 5px rgba(0,0,0,.5);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	transform: translateY(-100%);
+	// top: -100%;
+	transition: transform 0.6s;
+	background-color: white;
+	&.active {
+		// top: 0;
+		transform: translateY(0);
+
+	}
+	.adminPanel-Header {
+		height: 100px;
+		line-height: 100px;
+		padding: 0 20px;
+		background-color: #222;
+		color: #ddd;
+		> span {
+			vertical-align: middle;
+			display: inline-block;
+			line-height: 30px;
+			.adminPanel-Hello {
+				font-size: 25px;
+				font-family: 'Roboto Condensed';
+				font-weight: 700;
+			}
+		}
+	}
+	.adminPanel-Content {
+		position: absolute;
+		top: 100px;
+		left :0;
+		right: 0;
+		bottom: 0;
+		.adminPanel-Navigation {
+			position: relative;
+			z-index: 99;
+			box-sizing: border-box;
+			height: 100%;
+			width: 250px;
+			padding: 20px 0;
+			background-color: #222;
+			> div {
+				padding: 10px 25px;
+				font-weight: 700;
+				color: #fff;
+				font-size: 20px;
+				cursor: pointer;
+				transition: background-color 0.2s;
+				&:hover {
+					background-color: #333;
+				}
+			}
+		}
+		.adminPanel-View {
+			background-color: #ddd;
+			position: absolute;
+			top: 0;
+			left : 250px;
+			right: 0;
+			bottom: 0;
+		}
+	}
+	.adminPanel-CloseButton {
+		position: absolute;
+		top: 25px;
+		right: 20px;
+		font-size: 30px;
+		width: 30px;
+		height: 30px;
+		color: #ddd;
+		text-align: center;
+		padding: 10px;
+		cursor: pointer;
+		transition: background-color 0.4s;
+		&:hover {
+			background-color: #444;
+		}
+	}
+}
+.adminPanel-UserMessage {
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-weight: 700;
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+	&.green {
+		background-color: #00D0A6;
+	}
+	&.red {
+		background-color: #F04043;
+	}
+}
+.adminEachView {
+	transition: left 0.4s;
+	position: absolute;
+	padding: 20px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	overflow-y: auto;
+}
+.addPictureView {
+	color: #000;
+	font-size: 20px;
+	font-weight: 700;
+	input, textarea {
+		vertical-align: top;
+		// border: 1px solid #d5d5d5;
+		border: 0;
+		outline :none;
+		font-size: 16px;
+		padding: 0 5px;
+		transition: border 0.3s;
+		box-sizing: border-box;
+		&:focus {
+			border: 1px solid #222;
+		}
+	}
+	.adminPanel-FormInfo {
+		float: left;
+		width: 60%;
+		.row {
+			padding-bottom: 20px;
+		}
+		input {
+			height: 70px;
+			text-align: center;
+			font-weight: 700;
+			font-size: 20px;
+			&.dimensions {
+				width: 50%;
+			}
+			&.big {
+				width: 100%;
+			}
+		}
+		textarea {
+			height: 100px;
+			text-align: center;
+			font-weight: 700;
+			resize: none;
+			font-size: 20px;
+			&.big {
+				width: 100%;
+			}
+		}
+	}
+	.adminPanel-LoadAnotherPhoto {
+		background-color: #222;
+		color: #ddd;
+		font-weight: 700;
+		font-size: 20px;
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+		margin-bottom: 20px;
+	}
+	.adminPanel-PhotoPreview {
+		float: left;
+		width: 40%;
+		padding-left: 20px;
+		box-sizing: border-box;
+		.adminPanel-ImageFileLoadBlock {
+			width: 100%;
+			height: 370px;
+			background-color: white;
+		}
+		.adminPanel-imgWrapper {
+			background-color: #222;
+			img {
+				width: 100%;
+				vertical-align: middle;
+			}
+		}
+	}
+	button {
+		width: 100%;
+		height: 70px;
+		font-size: 20px;
+		background-color: #222;
+		color: #ddd;
+		font-weight: 700;
+	}
+
+}
+.AllPicturesView {
+	background-color: #ddd;
+	padding: 0px 10px;
+}
+.FavoritesView {
+	background-color: lighten(green, 40);
+}
+
+
+
+.view-hidden {
+	left : -100%;
+}
+#admin-image-file-input {
+	display: none;
+}
+.work {
+	&:hover > .work-removeMark,
+	&:hover > .work-editMark {
+		display: block;
+	}
+}
+.work-removeMark, .work-editMark {
+	position: absolute;
+	top: 10px;
+	z-index: 10;
+	right: 10px;
+	font-size: 20px;
+	line-height: 30px;
+	color: #fff;
+	background-color: rgba(0,0,0,.5);
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	display: none;
+	&:hover {
+		color: darken(#fff, 20);
+		background-color: rgba(0,0,0,.6);
+	}
+}
+.work-removeMark {
+	right: 10px;
+}
+.work-editMark {
+	right: 50px;
+}
+

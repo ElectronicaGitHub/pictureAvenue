@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Главная страница</title>
+	<link rel="stylesheet" href="/build/styles.bundle.css">
+	<link rel="stylesheet" href="/libs/fontawesome/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Philosopher:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<script>
+		pa = {};
+		<% if (user) { %>
+			pa.user = <%- JSON.stringify(user) %>
+		<% } %>
+	</script>
+	<script src="/build/main.bundle.js"></script>
+</body>
+</html>

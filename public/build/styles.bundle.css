@@ -1,0 +1,484 @@
+* {
+  font-family: 'Roboto Condensed'; }
+
+.adminPanel {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 0.6s;
+          transition: transform 0.6s;
+  background-color: white; }
+  .adminPanel.active {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0); }
+  .adminPanel .adminPanel-Header {
+    height: 100px;
+    line-height: 100px;
+    padding: 0 20px;
+    background-color: #222;
+    color: #ddd; }
+    .adminPanel .adminPanel-Header > span {
+      vertical-align: middle;
+      display: inline-block;
+      line-height: 30px; }
+      .adminPanel .adminPanel-Header > span .adminPanel-Hello {
+        font-size: 25px;
+        font-family: 'Roboto Condensed';
+        font-weight: 700; }
+  .adminPanel .adminPanel-Content {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+    .adminPanel .adminPanel-Content .adminPanel-Navigation {
+      position: relative;
+      z-index: 99;
+      box-sizing: border-box;
+      height: 100%;
+      width: 250px;
+      padding: 20px 0;
+      background-color: #222; }
+      .adminPanel .adminPanel-Content .adminPanel-Navigation > div {
+        padding: 10px 25px;
+        font-weight: 700;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        -webkit-transition: background-color 0.2s;
+                transition: background-color 0.2s; }
+        .adminPanel .adminPanel-Content .adminPanel-Navigation > div:hover {
+          background-color: #333; }
+    .adminPanel .adminPanel-Content .adminPanel-View {
+      background-color: #ddd;
+      position: absolute;
+      top: 0;
+      left: 250px;
+      right: 0;
+      bottom: 0; }
+  .adminPanel .adminPanel-CloseButton {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    color: #ddd;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    -webkit-transition: background-color 0.4s;
+            transition: background-color 0.4s; }
+    .adminPanel .adminPanel-CloseButton:hover {
+      background-color: #444; }
+
+.adminPanel-UserMessage {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: #fff; }
+  .adminPanel-UserMessage.green {
+    background-color: #00D0A6; }
+  .adminPanel-UserMessage.red {
+    background-color: #F04043; }
+
+.adminEachView {
+  -webkit-transition: left 0.4s;
+          transition: left 0.4s;
+  position: absolute;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  overflow-y: auto; }
+
+.addPictureView {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700; }
+  .addPictureView input, .addPictureView textarea {
+    vertical-align: top;
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    padding: 0 5px;
+    -webkit-transition: border 0.3s;
+            transition: border 0.3s;
+    box-sizing: border-box; }
+    .addPictureView input:focus, .addPictureView textarea:focus {
+      border: 1px solid #222; }
+  .addPictureView .adminPanel-FormInfo {
+    float: left;
+    width: 60%; }
+    .addPictureView .adminPanel-FormInfo .row {
+      padding-bottom: 20px; }
+    .addPictureView .adminPanel-FormInfo input {
+      height: 70px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 20px; }
+      .addPictureView .adminPanel-FormInfo input.dimensions {
+        width: 50%; }
+      .addPictureView .adminPanel-FormInfo input.big {
+        width: 100%; }
+    .addPictureView .adminPanel-FormInfo textarea {
+      height: 100px;
+      text-align: center;
+      font-weight: 700;
+      resize: none;
+      font-size: 20px; }
+      .addPictureView .adminPanel-FormInfo textarea.big {
+        width: 100%; }
+  .addPictureView .adminPanel-LoadAnotherPhoto {
+    background-color: #222;
+    color: #ddd;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 20px; }
+  .addPictureView .adminPanel-PhotoPreview {
+    float: left;
+    width: 40%;
+    padding-left: 20px;
+    box-sizing: border-box; }
+    .addPictureView .adminPanel-PhotoPreview .adminPanel-ImageFileLoadBlock {
+      width: 100%;
+      height: 370px;
+      background-color: white; }
+    .addPictureView .adminPanel-PhotoPreview .adminPanel-imgWrapper {
+      background-color: #222; }
+      .addPictureView .adminPanel-PhotoPreview .adminPanel-imgWrapper img {
+        width: 100%;
+        vertical-align: middle; }
+  .addPictureView button {
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+    background-color: #222;
+    color: #ddd;
+    font-weight: 700; }
+
+.AllPicturesView {
+  background-color: #ddd;
+  padding: 0px 10px; }
+
+.FavoritesView {
+  background-color: #4dff4d; }
+
+.view-hidden {
+  left: -100%; }
+
+#admin-image-file-input {
+  display: none; }
+
+.work:hover > .work-removeMark, .work:hover > .work-editMark {
+  display: block; }
+
+.work-removeMark, .work-editMark {
+  position: absolute;
+  top: 10px;
+  z-index: 10;
+  right: 10px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  display: none; }
+  .work-removeMark:hover, .work-editMark:hover {
+    color: #cccccc;
+    background-color: rgba(0, 0, 0, 0.6); }
+
+.work-removeMark {
+  right: 10px; }
+
+.work-editMark {
+  right: 50px; }
+footer {
+  height: 150px;
+  background-color: #222; }
+header {
+  height: 90px;
+  background-color: #222;
+  padding: 20px;
+  box-sizing: border-box; }
+  header .admin-userinfo {
+    float: right;
+    color: #ddd;
+    background-color: #333;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 20px; }
+    header .admin-userinfo span {
+      text-align: center;
+      display: inline-block;
+      float: left; }
+    header .admin-userinfo .admin-button-avatar {
+      width: 50px;
+      height: 50px; }
+    header .admin-userinfo .admin-button-username {
+      padding: 0 20px; }
+  header .admin-button {
+    position: relative;
+    width: 200px;
+    text-align: center;
+    color: #ddd;
+    cursor: pointer;
+    background-color: #333;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    float: right;
+    -webkit-transition: all 0.5s;
+            transition: all 0.5s; }
+    header .admin-button.extended {
+      width: auto; }
+      header .admin-button.extended span {
+        text-align: center;
+        display: inline-block;
+        float: left; }
+      header .admin-button.extended .admin-button-exit {
+        padding: 0 20px;
+        color: #ddd;
+        -webkit-transition: all 0.5s;
+                transition: all 0.5s; }
+        header .admin-button.extended .admin-button-exit:hover {
+          background-color: #4d4d4d; }
+      header .admin-button.extended .admin-button-openadmin {
+        padding: 0 20px;
+        -webkit-transition: all 0.5s;
+                transition: all 0.5s; }
+        header .admin-button.extended .admin-button-openadmin:hover {
+          background-color: #4d4d4d; }
+      header .admin-button.extended:hover {
+        background-color: #333;
+        color: #ddd; }
+    header .admin-button .admin-button-dropdown {
+      position: absolute;
+      box-shadow: 0 2px 5px black;
+      right: 0;
+      width: 100%;
+      z-index: -1;
+      background-color: #e6e6e6;
+      color: #333;
+      opacity: 0;
+      -webkit-transition: all 0.5s;
+              transition: all 0.5s; }
+      header .admin-button .admin-button-dropdown .admin-button-auth-method {
+        -webkit-transition: background-color 0.4s;
+                transition: background-color 0.4s; }
+        header .admin-button .admin-button-dropdown .admin-button-auth-method:hover {
+          background-color: #cccccc; }
+      header .admin-button .admin-button-dropdown a {
+        color: #2b2b2b; }
+    header .admin-button a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px; }
+      header .admin-button a i {
+        margin-right: 10px; }
+    header .admin-button:hover .admin-button-dropdown {
+      opacity: 1;
+      z-index: 10; }
+    header .admin-button:hover {
+      background-color: #444;
+      color: #eee; }
+* {
+  margin: 0;
+  padding: 0; }
+
+.main {
+  overflow: hidden; }
+
+.workspanel {
+  padding: 0 10px;
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  min-height: 500px;
+  background-color: #ddd; }
+
+.works-column {
+  float: left;
+  box-sizing: border-box;
+  padding: 20px 10px;
+  width: 285px; }
+  .works-column .work {
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); }
+    .works-column .work .work-image-wrapper {
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: #222;
+      -webkit-transition: height 0.6s;
+              transition: height 0.6s; }
+      .works-column .work .work-image-wrapper .work-views-likes-panel {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        height: 35px;
+        line-height: 35px;
+        color: #aaa;
+        text-align: center;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.3); }
+        .works-column .work .work-image-wrapper .work-views-likes-panel .likes {
+          padding: 2px 10px 2px 5px; }
+        .works-column .work .work-image-wrapper .work-views-likes-panel .views {
+          padding: 2px 0px 2px 5px; }
+      .works-column .work .work-image-wrapper img {
+        width: 100%;
+        vertical-align: top; }
+    .works-column .work .work-infoPanel {
+      padding: 5px 10px;
+      color: #222; }
+      .works-column .work .work-infoPanel .work-title {
+        font-weight: 700; }
+      .works-column .work .work-infoPanel .work-user {
+        margin-top: 5px;
+        font-size: 14px;
+        padding-left: 5px;
+        cursor: pointer; }
+
+.searchpanel {
+  float: left;
+  width: 0%;
+  background-color: #ff6666; }
+
+.workmodal {
+  display: none;
+  z-index: 200;
+  -webkit-transform: translateY(-200%);
+      -ms-transform: translateY(-200%);
+          transform: translateY(-200%);
+  margin: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 1000px;
+  height: 500px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  -webkit-transition: -webkit-transform 0.3s;
+          transition: transform 0.3s; }
+  .workmodal.show {
+    display: block !important; }
+  .workmodal.onScreen {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0); }
+
+.workmodal-closebutton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  text-align: center;
+  color: #555;
+  cursor: pointer;
+  -webkit-transition: color 0.4s;
+          transition: color 0.4s; }
+  .workmodal-closebutton:hover {
+    color: #222; }
+
+.fader {
+  display: none;
+  z-index: 100;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: opacity 0.3s;
+          transition: opacity 0.3s; }
+  .fader.show {
+    display: block !important; }
+  .fader.onScreen {
+    opacity: 1; }
+
+.workmodal-img-wrapper {
+  height: 100%;
+  box-sizing: border-box;
+  float: left;
+  background-color: #222;
+  max-width: 50%;
+  min-width: 35%; }
+  .workmodal-img-wrapper .workmodal-img-helper {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%; }
+  .workmodal-img-wrapper img {
+    max-width: 100%;
+    min-width: 100%;
+    vertical-align: middle;
+    max-height: 100%; }
+
+.workmodal-info-wrapper {
+  position: relative;
+  float: left;
+  padding: 20px; }
+  .workmodal-info-wrapper .workmodal-title {
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; }
+  .workmodal-info-wrapper .workmodal-date {
+    font-size: 18px;
+    margin-bottom: 10px; }
+  .workmodal-info-wrapper .workmodal-description {
+    font-size: 18px; }
+  .workmodal-info-wrapper .workmodal-misc {
+    margin-bottom: 10px; }
+    .workmodal-info-wrapper .workmodal-misc .workmodal-likes {
+      margin-right: 10px; }
+      .workmodal-info-wrapper .workmodal-misc .workmodal-likes i {
+        margin-right: 5px; }
+    .workmodal-info-wrapper .workmodal-misc .workmodal-views i {
+      margin-right: 5px; }
+  .workmodal-info-wrapper .workmodal-eachtag {
+    padding: 2px 5px;
+    margin-right: 5px;
+    background-color: #222;
+    color: white;
+    border-radius: 5px; }

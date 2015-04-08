@@ -1,0 +1,25 @@
+{
+	"port" : 8080,
+	"db": {
+		"name" : "pictureAvenue"
+	},
+	"mongoose" :  {
+		"uri" : "mongodb://localhost/pictureAvenue",
+		"options" : {
+			"server" : {
+				"socketOptions" : {
+					"keepAive" : 1
+				}
+			}
+		}
+	},
+	"session" : {
+		"secret" : "pictureAvenue8816244064",
+		"key" : "sid",
+		"cookie" : {
+			"path" : "/",
+			"httpOnly" : true,
+			"maxAge" : null
+		}
+	}
+}
