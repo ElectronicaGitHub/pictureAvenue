@@ -9,7 +9,7 @@ module.exports = function(express) {
 	    clientSecret: "hc6mmLduO3Ipnq9Mzy3J",
 	    callbackURL:  "http://127.0.0.1:8080/auth/vkontakte/callback"
 	}, function(accessToken, refreshToken, profile, done) {
-		// console.log(profile);
+		console.log(profile);
 		User.findOne({
 			nickname : profile.username
 		}, function(err, user) {
